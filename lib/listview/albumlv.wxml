@@ -1,0 +1,53 @@
+<template name="albumlv" >
+
+
+
+        <block   wx:for-items="{{datas}}" wx:if="{{!stateBean.contentHidden}}"    wx:for-item="item" wx:for-index="i" wx:key="unique">
+
+            <navigator url="/pages/lession/album?id={{item.id}}&title={{item.title}}" hover-class="">
+                <view class="l-r l-c lession-item">
+                    <view>
+                        <image class="album-cover-img-rect" src="{{item.coverUrl}}" mode="aspectFill"/>
+                    </view>
+                    <view class="l_auto lession-item-right">
+                        <text class="lession-name maxlines1" style="padding: 0">{{item.name}}</text>
+                        <view style="display: flex;flex-direction: row">
+                            <text class="lession-author" >{{item.nickname}}</text>
+                            <text class="lession-author" style="color: #aaaaaa">{{item.userTitle}}</text>
+                        </view>
+                        <view style="flex-direction:row;display:flex;width:100%;height:40rpx;line-height:40rpx">
+
+                            <text class="play-count" style="line-height: 40rpx" >{{item.playCount}}次播放</text>
+
+                            <view class="aliagn-parent-right" style="flex-direction:row;display:flex;">
+
+                                <text class="lesson-fee-discount" wx:if="{{item.showOriginPrice}}">￥{{item.price}} </text>
+                                <text class="lesson-fee" style="margin-left: 10rpx"> {{item.rightText}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view wx:if="{{lvbean.datas.length-1 > index}}" class="lession-split-line"/>
+            </navigator>
+        </block>
+
+
+        <view class="loadmore_view"  wx:if="{{!stateBean.loadmoreHidden}}" >
+            {{stateBean.loadmoreMsg}}
+        </view>
+
+        <view class ="empty_view" wx:if="{{!stateBean.emptyHidden}}"   >
+
+            <icon type="info" size="45"/>
+            <view class="msg"> {{stateBean.emptyMsg}}</view>
+
+        </view>
+
+        <view class ="error_view" wx:if="{{!stateBean.errorHidden}}">
+            <icon type="warn" size="45" />
+            <view class="msg"> {{stateBean.errorMsg}}</view>
+            <button  class = "retrybtn"  type="warn"  loading="{{btnLoading}}"
+                     disabled="{{btnDisabled}}" catchtap="onRetry" hover-class="other-button-hover"> 点击重试 </button>
+        </view>
+
+</template>

@@ -1,0 +1,11 @@
+<template name="tabs" >
+
+    <!--data中应有一个obj,其中有字段tabs和tabIndex,以及方法onClickTab,而且page中也应有一个方法onClickTab,调用本obj方法onClickTab-->
+    <!--<scroll-view class="tab-srcoller" scroll-x="true" scroll-y="false" style="height: 90rpx;width: 750rpx">-->
+        <view class="tab-container">
+            <block   wx:for-items="{{tabStrs}}" wx:for-item="item" wx:for-index="i" wx:key="unique">
+                <view class="tab-items {{item.indicator}}" data-index="{{i}}" catchtap="onClickTab">{{item.str}}</view><!--{{tabIndex == i ? 'item-selected' : 'item-unselected'}}-->
+            </block>
+        </view>
+    <!--</scroll-view>-->
+</template>

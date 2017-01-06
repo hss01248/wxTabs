@@ -1,0 +1,19 @@
+
+<template name="pagestate" >
+
+    <view class ="empty_view" wx:if="{{!emptyHidden}}"   >
+
+                <icon type="info" size="45"/>
+                <view class="msg"> {{emptyMsg}}</view>
+
+    </view>
+
+    <view class ="error_view" wx:if="{{!errorHidden}}">
+                <icon type="warn" size="45" />
+                <view class="msg"> {{errorMsg}}</view>
+                <button  class = "retrybtn"  type="warn"  loading="{{btnLoading}}"
+                         disabled="{{btnDisabled}}" catchtap="onRetry" hover-class="other-button-hover"> 点击重试 </button>
+
+    </view>
+
+ </template>

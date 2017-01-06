@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<scroll-view   scroll-y="true" style="height:1300rpx;width: 100%;" lower-threshold="0"
+               bindscrolltolower="onLoadMore" bindscrolltoupper="onRefesh" >
+
+
+  <!--tab标题-->
+  <import src="../../lib/tab/tabs.wxml"/>
+  <view  style="width: 100%">
+    <template is="tabs" data="{{...tabInfo}}" />
+  </view>
+
+  <!--tab下方的listview-->
+
+  <import src="../../lib/listview/albumlv.wxml"/>
+  <block wx:for-items="{{tabInfo.tabStrs}}" wx:for-item="str" wx:for-index="i" wx:key="unique">
+
+    <view  wx:if="{{tabInfo.tabIndex == i}}" style="width: 100%;height: 60%">
+      <template is="albumlv" data="{{...tabDatas[i]}}" />
+    </view>
+  </block>
+
+
+</scroll-view>

@@ -1,0 +1,39 @@
+
+.tab-srcoller{
+    width: 100%;
+   /* border-bottom:2rpx solid #e4e4e4;*/
+}
+
+.tab-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:space-around;
+    align-items: center;
+    overflow-x: scroll;
+
+
+   /* margin-left: 55%;*//*必须设置这个,否则左边一些项目会看不见*/
+
+}
+
+/*tab栏的条目数,自动均分*/
+.tab-items{
+    flex: 1 0 200rpx;
+    text-align: center;
+    padding-bottom: 30rpx;
+    padding-top: 30rpx;
+    font-size: 30rpx;
+    color: #333333;
+}
+
+
+
+.item-selected{
+    border-bottom: 4rpx solid #14b394;
+    color: #14b394;
+}
+.item-unselected{
+    border-bottom: 4rpx solid #e4e4e4;
+    color: #333333;
+}
